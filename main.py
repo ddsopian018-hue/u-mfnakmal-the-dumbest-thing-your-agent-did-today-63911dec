@@ -12,6 +12,8 @@ LINE = "My agent's game scored 98.36% with the practice judge, then came back un
 
 
 def main() -> None:
+    if not 1 <= len(LINE) <= 200:
+        raise ValueError(f"line must be 1-200 characters, got {len(LINE)}")
     output_dir = os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output"
     os.makedirs(output_dir, exist_ok=True)
     path = os.path.join(output_dir, "entry.txt")
